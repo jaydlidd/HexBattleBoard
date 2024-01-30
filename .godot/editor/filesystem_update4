@@ -1,0 +1,4 @@
+res://Scenes/Characters/farmer.tscn
+res://Scenes/Levels/Sandbox_Idea_Testing.tscn
+res://Scenes/Map_Tiles/sand_tile.tscn
+res://Scripts/GameManager.gd
