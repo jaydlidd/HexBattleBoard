@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://viafrbyeaawk"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_elakd"]
+[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="2_q6qsq"]
+[ext_resource type="ArrayMesh" uid="uid://1tj6lhv3nxn8" path="res://Models/hex_model_base/hex_model_base.obj" id="2_ycu1b"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_elakd")
+horiz_tiles = 4
+vert_tiles = 4
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.34202, 0.469846, -0.813798, 0, 0.866025, 0.5, 0.939693, -0.17101, 0.296198, 0, 20, 10)
+projection = 1
+size = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+
+[node name="HexModelBase" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ycu1b")
+script = ExtResource("2_q6qsq")

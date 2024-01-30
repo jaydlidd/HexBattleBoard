@@ -1,14 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://viafrbyeaawk"]
+[gd_scene load_steps=4 format=3 uid="uid://viafrbyeaawk"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_elakd"]
+[ext_resource type="PackedScene" uid="uid://fneasxqgj0io" path="res://Scenes/char_model_base.tscn" id="2_r3b1c"]
+[ext_resource type="PackedScene" uid="uid://c3wn27tjrjvkr" path="res://Scenes/hex_model_base.tscn" id="3_qb0ts"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_elakd")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.34202, 0.469846, -0.813798, 0, 0.866025, 0.5, 0.939693, -0.17101, 0.296198, 0, 10, 0)
-projection = 1
-size = 60.0
+horiz_tiles = 4
+vert_tiles = 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+
+[node name="CharModelBase" parent="." instance=ExtResource("2_r3b1c")]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, -1.49012e-08, 1, 0, 1.90735e-06, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharModelBase"]
+transform = Transform3D(0.34202, 0.469846, -0.813798, 0, 0.866026, 0.5, 0.939693, -0.17101, 0.296198, 1.49012e-07, 20, 10)
+projection = 1
+size = 60.0
+
+[node name="HexModelBase" parent="." instance=ExtResource("3_qb0ts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 9)
