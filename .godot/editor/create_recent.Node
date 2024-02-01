@@ -1,5 +1,7 @@
+MeshInstance3D
+TextureRect
 CollisionShape3D
-Area3D
 StaticBody3D
+Area3D
 DirectionalLight3D
 Camera3D

@@ -1,9 +1,3 @@
-res://Scenes/Map_Tiles/sand_map_tile.tscn
 res://Scenes/Levels/Sandbox_Idea_Testing.tscn
-res://Scripts/GameManager.gd
-res://Scripts/PlayerController.gd
-res://Textures/blue_placeholder.tres
-res://Scenes/Characters/farmer.tscn
-res://Scenes/hex_model_base.tscn
 res://Scripts/char_model_base.gd
-res://Scenes/char_model_base.tscn
+res://Scripts/background.gd

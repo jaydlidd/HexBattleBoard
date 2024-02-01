@@ -9,8 +9,8 @@ var initialPos: Vector3
 
 var mouse = Vector2.ZERO
 
-@onready var camera = $Camera3D
-
+var camera: Camera3D
+#
 func _input(event):
 	# Update the mouse vector to follow the actual mouse movement
 	if event is InputEventMouseMotion:
@@ -18,27 +18,30 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# Get the active camera
+	camera = get_viewport().get_camera_3d()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
+	get_selection()
 	if draggable:
 		if Input.is_action_just_pressed("mouse_click"):
 			initialPos = global_position
-			get_selection()
+			
 #			offset = GameManager.get_global_mouse_pos() - global_position
 		if Input.is_action_pressed("mouse_click"):
 #			print(GameManager.get_global_mouse_pos_x(), 0, GameManager.get_global_mouse_pos_y())
-			print(GameManager.get_global_mouse_pos())
 #			global_position = GameManager.get_global_mouse_pos() - offset
-			global_position = Vector3 (GameManager.get_global_mouse_pos_x(), 0, GameManager.get_global_mouse_pos_y())
+#			print(mouse)
+			global_position = Vector3 (GameManager.get_global_mouse_pos_x(), 1, GameManager.get_global_mouse_pos_y())
 		elif Input.is_action_just_released("mouse_click"):
 			var tween = get_tree().create_tween()
 			if is_inside_tile:
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+				draggable = false
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
-
+				draggable = false
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Droppable"):
@@ -52,9 +55,8 @@ func _on_area_3d_body_exited(body):
 func _on_area_3d_mouse_entered():
 	draggable = true
 	scale = Vector3(1.05, 1.05, 1.05)
-	
+
 func _on_area_3d_mouse_exited():
-	draggable = false
 	scale = Vector3(1, 1, 1)
 	
 # Handle ray casting and getting a global position for the mouse
@@ -75,11 +77,12 @@ func get_selection():
 	rayParams.from = start
 	rayParams.to = end
 	rayParams.exclude = []
-	rayParams.collision_mask = 1	
+	rayParams.collision_mask = 1
+	rayParams.collide_with_areas = true
 	
 	# Project the ray and get where it intersects first	
 	var result = worldspace.intersect_ray(rayParams)
-	print(result)
+#	print(result)
 	if result.size() != 0:
 		# If there is an interaction with on object, ground / player, then update mouse pos
 		mouse.x = result.position.x
