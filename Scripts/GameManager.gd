@@ -5,8 +5,8 @@ extends Node3D
 @export var vert_tiles = 2
 
 # Preloaded map tiles
-#var sand_tile = preload("res://Scenes/Map_Tiles/sand_map_tile.tscn")
-#var grass_tile = preload("res://Scenes/Map_Tiles/grass_map_tile.tscn")
+var sand_tile = preload("res://Scenes/Map_Tiles/sand_tile.tscn")
+var grass_tile = preload("res://Scenes/Map_Tiles/grass_tile.tscn")
 
 # Map variables
 var row_height = 3.6
@@ -14,6 +14,7 @@ var col_width = 4.8
 var map_tile_list = []
 
 var global_mouse_pos = Vector2.ZERO
+var camera: Camera3D
 
 # Called to return the current mouse position
 func get_global_mouse_pos():
@@ -30,20 +31,20 @@ func set_global_mouse_pos(new_pos: Vector2):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	load_map()
-	pass
+	# Get the active camera
+	camera = get_viewport().get_camera_3d()
 
 #func load_map():
 	# Array of preloaded tile scenes
-#	var possible_tiles = [sand_tile, grass_tile]
+	var possible_tiles = [sand_tile, grass_tile]
 	
 	# Map created with possible tiles randomised in a preset amount
-#	var map = design_random_preset_map(horiz_tiles, vert_tiles, possible_tiles)
+	var map = design_random_preset_map(horiz_tiles, vert_tiles, possible_tiles)
 #	var map = design_random_map(possible_tiles)
 	
 	# Add the tiles to the world scene
-#	for i in map.size():
-#		add_child(map[i])
+	for i in map.size():
+		add_child(map[i])
 
 func design_random_preset_map(x:int, y:int, possible_tiles:Array):
 	# Called with a size x and y which is the number of tiles tall and wide the map will be
@@ -114,3 +115,39 @@ func get_divisors(num:int):
 			divisors.append(i)
 			
 	return divisors
+	
+#func _input(event):
+#	# Update the mouse vector to follow the actual mouse movement
+#	if event is InputEventMouseMotion:
+#		global_mouse_pos = event.position
+#
+## Handle ray casting and getting a global position for the mouse
+#func get_selection():
+#	# Get the current World3d which is just the current scene essentially
+#	var worldspace = get_world_3d().direct_space_state
+#
+#	# Start projecting a ray from the current mouse position
+#	var start = camera.project_ray_origin(global_mouse_pos)
+#
+#	# Get a point 1000 units from the mouse
+#	var end = camera.project_position(global_mouse_pos, 100000)
+#
+#	# Create a PhysicsRayQueryParameters3D to hold the raycast and so we can set parameters
+#	var rayParams = PhysicsRayQueryParameters3D.new()
+#
+#	# Set the params
+#	rayParams.from = start
+#	rayParams.to = end
+#	rayParams.exclude = []
+#	rayParams.collision_mask = 1
+#	rayParams.hit_from_inside = true
+#	rayParams.collide_with_areas = true
+#
+#	# Project the ray and get where it intersects first	
+#	var result = worldspace.intersect_ray(rayParams)
+##	print(result)
+#	if result.size() != 0:
+#		# If there is an interaction with on object, ground / player, then update mouse pos
+#		global_mouse_pos.x = result.position.x
+#		global_mouse_pos.y = result.position.z
+#		set_global_mouse_pos(global_mouse_pos)

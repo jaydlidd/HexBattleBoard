@@ -1,7 +1,9 @@
 MeshInstance3D
-TextureRect
 CollisionShape3D
 StaticBody3D
 Area3D
+Button
+Control
+TextureRect
 DirectionalLight3D
 Camera3D

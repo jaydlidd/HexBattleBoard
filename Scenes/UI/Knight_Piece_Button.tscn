@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://crs7o6kqv0mob"]
+
+[ext_resource type="Script" path="res://KnightButtonPiece.gd" id="1_wjwco"]
+[ext_resource type="PackedScene" uid="uid://fneasxqgj0io" path="res://Scenes/char_model_base.tscn" id="2_5gn46"]
+
+[node name="Knight_Piece_Button" type="Button"]
+custom_minimum_size = Vector2(96, 96)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_wjwco")
+draggable_object = ExtResource("2_5gn46")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
