@@ -15,10 +15,27 @@ run/main_scene="res://Scenes/Levels/Sandbox_Idea_Testing.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [display]
 
 window/size/viewport_width=393
 window/size/viewport_height=852
+
+[input]
+
+mouse_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[physics]
+
+common/physics_ticks_per_second=300
+common/max_physics_steps_per_frame=16
 
 [rendering]
 

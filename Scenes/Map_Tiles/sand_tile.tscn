@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://blupttq2x335p"]
+
+[ext_resource type="PackedScene" uid="uid://c3wn27tjrjvkr" path="res://Scenes/hex_model_base.tscn" id="1_hh1jc"]
+[ext_resource type="ArrayMesh" uid="uid://dly0gomtekneo" path="res://Models/sand_tile/sand_tile.obj" id="2_ru74j"]
+
+[node name="SandTile" type="Node3D"]
+
+[node name="HexModelBase" parent="." instance=ExtResource("1_hh1jc")]
+
+[node name="SandTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = ExtResource("2_ru74j")
