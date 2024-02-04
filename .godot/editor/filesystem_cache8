@@ -1,38 +1,102 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706925782
+::res://::1707022604
 icon.svg::CompressedTexture2D::3106855803036608842::1706521693::1706521711::1::::<><>::
 README.md::TextFile::-1::1706580292::0::1::::<><>::
-::res://Models/::1706603610
-::res://Models/farmer/::1706603614
-farmer.obj::Mesh::1278465351136521707::1706522320::1706603614::1::::<><>::uid://bs44i18jj1kvn
-farmer.png::CompressedTexture2D::3711463320194513599::1706522320::1706603612::1::::<><>::
-::res://Models/grass_tile/::1706603614
-grass_tile.obj::Mesh::4230235613935615994::1706602686::1706603614::1::::<><>::uid://wekejfgt41oa
-grass_tile.png::CompressedTexture2D::1553026864889582428::1706602686::1706603612::1::::<><>::
-::res://Models/hex_model_base/::1706603613
-hex_model_base.obj::Mesh::1864735514024509503::1706524962::1706603613::1::::<><>::uid://c3h0ucusdbp1n
-hex_model_base.png::CompressedTexture2D::6754133410991479605::1706524962::1706603612::1::::<><>::
-::res://Models/knight/::1706603613
-knight.obj::Mesh::216811808548539158::1706602873::1706603613::1::::<><>::uid://8m10w5q1l3uq
-knight.png::CompressedTexture2D::2342628862383349024::1706602873::1706603612::1::::<><>::
-::res://Models/model_base/::1706603613
-model_base.obj::Mesh::4879906915962404654::1706524133::1706603613::1::::<><>::uid://ba3jm56w0hj8k
-model_base.png::CompressedTexture2D::2444792767891247320::1706524133::1706603612::1::::<><>::
-::res://Models/sand_tile/::1706603614
-sand_tile.obj::Mesh::7982413791511266618::1706523212::1706603614::1::::<><>::uid://e6ixujmijhfs
-sand_tile.png::CompressedTexture2D::345278959056447328::1706523212::1706603612::1::::<><>::
-::res://Models/sword/::1706603614
-sword.obj::Mesh::256128775338831620::1706602771::1706603614::1::::<><>::uid://ixeaugtmx2sr
-sword.png::CompressedTexture2D::609235366034774073::1706602771::1706603612::1::::<><>::
-::res://Scenes/::1706611491
-char_model_base.tscn::PackedScene::378024978650176746::1706611491::0::1::::<><>::res://Scripts/char_model_base.gd<>uid://cbr4mbfmhc7os
-hex_model_base.tscn::PackedScene::6784384547712323569::1706609454::0::1::::<><>::uid://1tj6lhv3nxn8
-::res://Scenes/Characters/::1706609538
-::res://Scenes/Levels/::1706926462
-Sandbox_Idea_Testing.tscn::PackedScene::1490490562938235894::1706926462::0::1::::<><>::res://Scripts/GameManager.gd<>uid://fneasxqgj0io::::res://Scenes/char_model_base.tscn<>uid://c3wn27tjrjvkr::::res://Scenes/hex_model_base.tscn<>res://Scripts/background.gd
-::res://Scenes/Map_Tiles/::1706609083
-::res://Scripts/::1706926520
-char_model_base.gd::GDScript::-1::1706926462::0::1::::<>Node3D<>::
-GameManager.gd::GDScript::-1::1706926380::0::1::::<>Node3D<>::
-::res://Textures/::1706608311
-blue_placeholder.tres::StandardMaterial3D::2390741373003303189::1706608311::0::1::::<><>::
+::res://Models/::1706931376
+::res://Models/farmer/::1706932867
+farmer.obj::Mesh::1278465351136521707::1706931375::1706932867::1::::<><>::uid://bs44i18jj1kvn
+farmer.png::CompressedTexture2D::3711463320194513599::1706931375::1706931375::1::::<><>::
+::res://Models/grass_tile/::1706932867
+grass_tile.obj::Mesh::4230235613935615994::1706931375::1706932867::1::::<><>::uid://wekejfgt41oa
+grass_tile.png::CompressedTexture2D::1553026864889582428::1706931375::1706931375::1::::<><>::
+::res://Models/hex_model_base/::1706932868
+hex_model_base.obj::Mesh::1864735514024509503::1706931375::1706932868::1::::<><>::uid://c3h0ucusdbp1n
+hex_model_base.png::CompressedTexture2D::6754133410991479605::1706931375::1706931375::1::::<><>::
+::res://Models/knight/::1706932868
+knight.obj::Mesh::216811808548539158::1706931375::1706932868::1::::<><>::uid://8m10w5q1l3uq
+knight.png::CompressedTexture2D::2342628862383349024::1706931375::1706931375::1::::<><>::
+::res://Models/model_base/::1706932868
+model_base.obj::Mesh::4879906915962404654::1706931375::1706932868::1::::<><>::uid://ba3jm56w0hj8k
+model_base.png::CompressedTexture2D::2444792767891247320::1706931376::1706931376::1::::<><>::
+::res://Models/sand_tile/::1706932869
+sand_tile.obj::Mesh::7982413791511266618::1706931376::1706932869::1::::<><>::uid://e6ixujmijhfs
+sand_tile.png::CompressedTexture2D::345278959056447328::1706931376::1706931376::1::::<><>::
+::res://Models/sword/::1706932869
+sword.obj::Mesh::256128775338831620::1706931376::1706932869::1::::<><>::uid://ixeaugtmx2sr
+sword.png::CompressedTexture2D::609235366034774073::1706931376::1706931376::1::::<><>::
+::res://Scenes/::1706960736
+char_model_base.tscn::PackedScene::378024978650176746::1706960735::0::1::::<><>::uid://cbr4mbfmhc7os::::res://Models/model_base/model_base.obj
+hex_model_base.tscn::PackedScene::6784384547712323569::1706960736::0::1::::<><>::uid://1tj6lhv3nxn8::::res://Models/hex_model_base/hex_model_base.obj
+::res://Scenes/Levels/::1706960735
+Sandbox_Idea_Testing.tscn::PackedScene::1490490562938235894::1706960735::0::1::::<><>::res://Scripts/GameManager.gd<>res://Scripts/PlayerPiecesInventory.gd
+::res://Scenes/Map_Tiles/::1706960735
+grass_tile.tscn::PackedScene::6421590420433438381::1706960735::0::1::::<><>::uid://c3wn27tjrjvkr::::res://Scenes/hex_model_base.tscn<>uid://b1jfmlclwuhhq::::res://Models/grass_tile/grass_tile.obj
+sand_tile.tscn::PackedScene::3200731227687492267::1706960735::0::1::::<><>::uid://c3wn27tjrjvkr::::res://Scenes/hex_model_base.tscn<>uid://dly0gomtekneo::::res://Models/sand_tile/sand_tile.obj
+::res://Scenes/Pieces/::1706960735
+knight_piece.tscn::PackedScene::5318462280245573940::1706960735::0::1::::<><>::uid://dda4g1w8ikr3::::res://Models/knight/knight.obj<>uid://fneasxqgj0io::::res://Scenes/char_model_base.tscn
+::res://Scenes/UI/::1706960735
+Knight_Piece_Button.tscn::PackedScene::6005180098116949413::1706960735::0::1::::<><>::res://Scripts/MovePiece.gd<>uid://c1nh6l4ltgkv1::::res://Textures/Piece Icons/knight.png<>uid://2lakkkxh66tn::::res://Textures/Piece Icons/farmer.png
+::res://Scripts/::1706960733
+GameManager.gd::GDScript::-1::1706959592::0::1::::<>Node3D<>::
+GlobalVars.gd::GDScript::-1::1706959603::0::1::::<>Node<>::
+MovePiece.gd::GDScript::-1::1706960733::0::1::::<>Button<>::
+PlayerPiecesInventory.gd::GDScript::-1::1706959706::0::1::::<>HBoxContainer<>::
+::res://Textures/::1706956055
+blue_placeholder.tres::StandardMaterial3D::2390741373003303189::1706931376::0::1::::<><>::
+::res://Textures/Piece Icons/::1706957620
+farmer.png::CompressedTexture2D::1917825333197750487::1706957251::1706957255::1::::<><>::
+knight.png::CompressedTexture2D::6625069214419846028::1706957612::1706957620::1::::<><>::
+::res://Textures/UI/::1706955544
+2931141 - archive data files folder storage.png::CompressedTexture2D::5725058072917020906::1517521188::1706955543::1::::<><>::
+2931142 - delete minimize minus remove.png::CompressedTexture2D::2166818519141875636::1517521188::1706955543::1::::<><>::
+2931143 - export share up upload.png::CompressedTexture2D::3556085321448897534::1517521190::1706955543::1::::<><>::
+2931144 - connect internet network signal wifi wireless wlan.png::CompressedTexture2D::853817637991468232::1517521190::1706955543::1::::<><>::
+2931145 - bullet checklist list menu note playlist.png::CompressedTexture2D::8655696282415515910::1517521190::1706955543::1::::<><>::
+2931146 - cloud cloudy data server storage weather.png::CompressedTexture2D::3817450517951854235::1517521190::1706955543::1::::<><>::
+2931147 - account avatar face head human profile user.png::CompressedTexture2D::6826639333741266237::1517521190::1706955543::1::::<><>::
+2931148 - arrow end right.png::CompressedTexture2D::963954581886117950::1517521190::1706955543::1::::<><>::
+2931149 - arrow back begin left pos1.png::CompressedTexture2D::4461777999078422014::1517521192::1706955543::1::::<><>::
+2931150 - architecture building furniture home homepage house office.png::CompressedTexture2D::4834312845407617452::1517521192::1706955543::1::::<><>::
+2931151 - bin close delete exit recycle remove x.png::CompressedTexture2D::14350318821639728::1517521192::1706955544::1::::<><>::
+2931152 - adjust control gear repair settings setup tools.png::CompressedTexture2D::2008409222532344101::1517521192::1706955544::1::::<><>::
+2931153 - clipboard clone copy duplicate multiply.png::CompressedTexture2D::4731685260309887277::1517521208::1706955544::1::::<><>::
+2931154 - achievement bookmark favorite like rank rating star.png::CompressedTexture2D::7988097573365592760::1517521194::1706955544::1::::<><>::
+2931155 - add attach create maximize new plus.png::CompressedTexture2D::7161130828918372461::1517521194::1706955544::1::::<><>::
+2931156 - arrow refresh reload repeat.png::CompressedTexture2D::3522292723013756609::1517521194::1706955544::1::::<><>::
+2931157 - arrow refresh reload repeat.png::CompressedTexture2D::98189351866950248::1517521194::1706955544::1::::<><>::
+2931158 - arrows keygen keygenerator random shuffle.png::CompressedTexture2D::450041233821368161::1517521208::1706955544::1::::<><>::
+2931159 - arrow forward move navigation next right.png::CompressedTexture2D::2994156880779932309::1517521194::1706955544::1::::<><>::
+2931160 - arrow bottom direction down download pointer.png::CompressedTexture2D::5442891163769916876::1517521196::1706955544::1::::<><>::
+2931161 - arrow direction move navigation top up.png::CompressedTexture2D::2016987515490940790::1517521196::1706955544::1::::<><>::
+2931162 - arrow back direction left move navigation.png::CompressedTexture2D::6711697571100943256::1517521196::1706955544::1::::<><>::
+2931163 - communication exchange network share sharing social socialmedia.png::CompressedTexture2D::7651839057515992922::1517521196::1706955544::1::::<><>::
+2931164 - clef key lock password privacy private unlock.png::CompressedTexture2D::475830732048683576::1517521196::1706955544::1::::<><>::
+2931165 - arrow forward navigation redo right.png::CompressedTexture2D::5087557042473705091::1517521198::1706955544::1::::<><>::
+2931166 - arrow back left navigation undo.png::CompressedTexture2D::3595936424947408256::1517521198::1706955544::1::::<><>::
+2931167 - archive doc document documents file sheet text.png::CompressedTexture2D::6066430591858821498::1517521198::1706955544::1::::<><>::
+2931168 - bin delete garbage remove trash.png::CompressedTexture2D::136535440136385898::1517521208::1706955543::1::::<><>::
+2931169 - clippers cut hair saloon scissor scissors shear.png::CompressedTexture2D::4298389974289322217::1517521198::1706955543::1::::<><>::
+2931170 - change edit rename write.png::CompressedTexture2D::2154364500549417076::1517521210::1706955543::1::::<><>::
+2931171 - down download import save storage.png::CompressedTexture2D::684897780651356908::1517521208::1706955543::1::::<><>::
+2931172 - communication email letter mail message offer send.png::CompressedTexture2D::5210022458497715113::1517521200::1706955543::1::::<><>::
+2931173 - document empty file new page paper sheet.png::CompressedTexture2D::3380634000137985110::1517521200::1706955543::1::::<><>::
+2931174 - analysis clipboard copy paste report statistics.png::CompressedTexture2D::5267243885217800547::1517521200::1706955543::1::::<><>::
+2931175 - agenda calendar calender date month schedule timetable.png::CompressedTexture2D::3219405813605101985::1517521200::1706955543::1::::<><>::
+2931176 - disk diskette drive floppy guardar save usb.png::CompressedTexture2D::3197649708343102819::1517521200::1706955543::1::::<><>::
+2931177 - output print printer.png::CompressedTexture2D::6631852378382714972::1517521202::1706955543::1::::<><>::
+2931178 - change creative design draw edit pen pencil.png::CompressedTexture2D::1710345152585902123::1517521202::1706955543::1::::<><>::
+2931179 - faq help information question service support.png::CompressedTexture2D::9154947584631002821::1517521202::1706955543::1::::<><>::
+2931180 - about chat info information service support.png::CompressedTexture2D::4171806476441556050::1517521202::1706955543::1::::<><>::
+2931181 - checklist lines list menu navigation.png::CompressedTexture2D::559915923523498338::1517521202::1706955543::1::::<><>::
+2931182 - append attach attachment clip mail office paperclip.png::CompressedTexture2D::3729142363426490247::1517521204::1706955543::1::::<><>::
+2931183 - magnifier magnifying minus out smaller zoom.png::CompressedTexture2D::5649623077727784136::1517521204::1706955543::1::::<><>::
+2931184 - glass magnifier magnifying normal regular search zoom.png::CompressedTexture2D::3654790987127196918::1517521204::1706955543::1::::<><>::
+2931185 - door enter entrance exit leave logout out.png::CompressedTexture2D::2463595103351889893::1517521204::1706955543::1::::<><>::
+2931186 - explore greater in magnifier magnifying plus zoom.png::CompressedTexture2D::6694002077746716013::1517521206::1706955543::1::::<><>::
+2931187 - door enter exit in leave.png::CompressedTexture2D::888521643296066020::1517521206::1706955543::1::::<><>::
+2931188 - door enter exit leave out.png::CompressedTexture2D::1694479271489233865::1517521206::1706955543::1::::<><>::
+2931189 - close door enter exit in leave.png::CompressedTexture2D::8528127541854562287::1517521206::1706955543::1::::<><>::
+2931190 - fit glass search view zoom.png::CompressedTexture2D::9064352641780276520::1517521206::1706955543::1::::<><>::
+2937371 - arrow refresh reload repeat.png::CompressedTexture2D::2276326086638823665::1517521188::1706955543::1::::<><>::
+2937372 - arrow refresh reload repeat.png::CompressedTexture2D::8888146540875062132::1517521188::1706955543::1::::<><>::
+2937373 - append attach attachment clip paperclip.png::CompressedTexture2D::2927128230489596470::1517521188::1706955543::1::::<><>::

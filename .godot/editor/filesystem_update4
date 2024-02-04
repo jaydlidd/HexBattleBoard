@@ -1,10 +1,8 @@
+res://Scenes/hex_model_base.tscn
+res://Scripts/MovePiece.gd
 res://Scenes/Levels/Sandbox_Idea_Testing.tscn
-res://Scripts/background.gd
-res://Scripts/char_model_base.gd
-res://Scripts/GameManager.gd
-res://Scripts/PieceController.gd
-res://KnightButtonPiece.gd
 res://Scenes/UI/Knight_Piece_Button.tscn
-res://Scenes/char_model_base.tscn
-res://Scenes/Map_Tiles/sand_tile.tscn
+res://Scenes/Pieces/knight_piece.tscn
 res://Scenes/Map_Tiles/grass_tile.tscn
+res://Scenes/Map_Tiles/sand_tile.tscn
+res://Scenes/char_model_base.tscn

@@ -1,6 +1,9 @@
-MeshInstance3D
-CollisionShape3D
 StaticBody3D
+MeshInstance3D
+Sprite2D
+HBoxContainer
+ScrollContainer
+CollisionShape3D
 Area3D
 Button
 Control

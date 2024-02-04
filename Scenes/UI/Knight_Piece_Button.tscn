@@ -1,14 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://crs7o6kqv0mob"]
+[gd_scene load_steps=4 format=3 uid="uid://crs7o6kqv0mob"]
 
-[ext_resource type="Script" path="res://KnightButtonPiece.gd" id="1_wjwco"]
-[ext_resource type="PackedScene" uid="uid://fneasxqgj0io" path="res://Scenes/char_model_base.tscn" id="2_5gn46"]
+[ext_resource type="Script" path="res://Scripts/MovePiece.gd" id="1_duo73"]
+[ext_resource type="Texture2D" uid="uid://c1nh6l4ltgkv1" path="res://Textures/Piece Icons/knight.png" id="2_8frca"]
+[ext_resource type="Texture2D" uid="uid://2lakkkxh66tn" path="res://Textures/Piece Icons/farmer.png" id="2_o2015"]
 
 [node name="Knight_Piece_Button" type="Button"]
 custom_minimum_size = Vector2(96, 96)
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("1_wjwco")
-draggable_object = ExtResource("2_5gn46")
+offset_right = 96.0
+offset_bottom = 96.0
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 3
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_duo73")
+button_icon = ExtResource("2_8frca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.115, 0.116)
+texture = ExtResource("2_o2015")
+centered = false
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

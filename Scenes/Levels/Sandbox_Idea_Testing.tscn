@@ -1,40 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://viafrbyeaawk"]
+[gd_scene load_steps=3 format=3 uid="uid://viafrbyeaawk"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_elakd"]
-[ext_resource type="PackedScene" uid="uid://crs7o6kqv0mob" path="res://Scenes/UI/Knight_Piece_Button.tscn" id="2_qo6pt"]
-[ext_resource type="PackedScene" uid="uid://cxqwwkmfb26e8" path="res://Scenes/Map_Tiles/grass_tile.tscn" id="3_v3lac"]
+[ext_resource type="Script" path="res://Scripts/PlayerPiecesInventory.gd" id="2_g8vuq"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_elakd")
-horiz_tiles = 4
-vert_tiles = 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.34202, 0.469846, -0.813798, 0, 0.866025, 0.5, 0.939693, -0.17101, 0.296198, -60, 62, 30)
+transform = Transform3D(-4.37114e-08, 0.5, -0.866026, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, -30, 30, 0)
 projection = 1
 size = 60.0
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 392.0
-offset_bottom = 855.0
-
-[node name="Knight_Piece_Button" parent="Control" instance=ExtResource("2_qo6pt")]
-layout_mode = 1
+[node name="Player1Container" type="ScrollContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -105.0
-offset_right = 48.0
-offset_bottom = -9.0
+offset_left = -164.5
+offset_top = -97.0
+offset_right = 165.5
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
+vertical_scroll_mode = 0
 
-[node name="GrassTile" parent="." instance=ExtResource("3_v3lac")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player1Container"]
+layout_mode = 2
+script = ExtResource("2_g8vuq")
