@@ -4,6 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dly0gomtekneo" path="res://Models/sand_tile/sand_tile.obj" id="2_ru74j"]
 
 [node name="SandTile" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="HexModelBase" parent="." instance=ExtResource("1_hh1jc")]
 

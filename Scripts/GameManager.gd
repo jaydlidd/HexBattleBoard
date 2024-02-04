@@ -1,46 +1,30 @@
 extends Node3D
 
-# DEV = Set the number of horizontal and vertical tiles of the preset_map
-@export var horiz_tiles = 2
-@export var vert_tiles = 2
-
-# Preloaded map tiles
-var sand_tile = preload("res://Scenes/Map_Tiles/sand_tile.tscn")
-var grass_tile = preload("res://Scenes/Map_Tiles/grass_tile.tscn")
-
 # Map variables
 var row_height = 3.6
 var col_width = 4.8
 var map_tile_list = []
-
-var global_mouse_pos = Vector2.ZERO
-var camera: Camera3D
-
-# Called to return the current mouse position
-func get_global_mouse_pos():
-	return global_mouse_pos
-	
-func get_global_mouse_pos_x():
-	return global_mouse_pos.x
-	
-func get_global_mouse_pos_y():
-	return global_mouse_pos.y
-
-func set_global_mouse_pos(new_pos: Vector2):
-	global_mouse_pos = new_pos
+var map:Array
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	# Get the active camera
-	camera = get_viewport().get_camera_3d()
+func _ready():	
+	# Load the map
+	load_map(GlobalVars.game_settings["map_select"])
 
-#func load_map():
+func load_map(map_select:String):
 	# Array of preloaded tile scenes
-	var possible_tiles = [sand_tile, grass_tile]
-	
-	# Map created with possible tiles randomised in a preset amount
-	var map = design_random_preset_map(horiz_tiles, vert_tiles, possible_tiles)
-#	var map = design_random_map(possible_tiles)
+	var possible_tiles = GlobalVars.game_settings["available_tiles"]
+		
+	match map_select:
+		# Map created with possible tiles randomised in a preset amount
+		"pseudorandom":
+			map = design_random_preset_map(
+			GlobalVars.game_settings["horiz_tiles"], 
+			GlobalVars.game_settings["vert_tiles"], 
+			possible_tiles)
+		# Map created with a random size and random tiles
+		"random":
+			map = design_random_map(possible_tiles)
 	
 	# Add the tiles to the world scene
 	for i in map.size():
@@ -99,8 +83,8 @@ func design_random_map(possible_tiles:Array):
 	print("Total tiles: ", total_tiles)	# DEBUG
 	
 	# Pick a random divisor, and to find it's pair we divide total_tiles by the divisor
-	horiz_tiles = divisors[randi()% divisors.size()]
-	vert_tiles = total_tiles / horiz_tiles
+	var horiz_tiles = divisors[randi()% divisors.size()]
+	var vert_tiles = total_tiles / horiz_tiles
 	
 	# Generate the design for total_tiles map
 	return design_random_preset_map(horiz_tiles, vert_tiles, possible_tiles)
@@ -115,39 +99,3 @@ func get_divisors(num:int):
 			divisors.append(i)
 			
 	return divisors
-	
-#func _input(event):
-#	# Update the mouse vector to follow the actual mouse movement
-#	if event is InputEventMouseMotion:
-#		global_mouse_pos = event.position
-#
-## Handle ray casting and getting a global position for the mouse
-#func get_selection():
-#	# Get the current World3d which is just the current scene essentially
-#	var worldspace = get_world_3d().direct_space_state
-#
-#	# Start projecting a ray from the current mouse position
-#	var start = camera.project_ray_origin(global_mouse_pos)
-#
-#	# Get a point 1000 units from the mouse
-#	var end = camera.project_position(global_mouse_pos, 100000)
-#
-#	# Create a PhysicsRayQueryParameters3D to hold the raycast and so we can set parameters
-#	var rayParams = PhysicsRayQueryParameters3D.new()
-#
-#	# Set the params
-#	rayParams.from = start
-#	rayParams.to = end
-#	rayParams.exclude = []
-#	rayParams.collision_mask = 1
-#	rayParams.hit_from_inside = true
-#	rayParams.collide_with_areas = true
-#
-#	# Project the ray and get where it intersects first	
-#	var result = worldspace.intersect_ray(rayParams)
-##	print(result)
-#	if result.size() != 0:
-#		# If there is an interaction with on object, ground / player, then update mouse pos
-#		global_mouse_pos.x = result.position.x
-#		global_mouse_pos.y = result.position.z
-#		set_global_mouse_pos(global_mouse_pos)

@@ -3,8 +3,8 @@
 [ext_resource type="ArrayMesh" uid="uid://cbr4mbfmhc7os" path="res://Models/model_base/model_base.obj" id="1_g3ry6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4r1q1"]
-height = 1.0
-radius = 2.25
+height = 0.5
+radius = 2.0
 
 [node name="CharModelBase" type="Node3D"]
 
@@ -12,12 +12,8 @@ radius = 2.25
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 1.6, 0.05)
+visible = false
 shape = SubResource("CylinderShape3D_4r1q1")
 
 [node name="ModelBase" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_g3ry6")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
-[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
