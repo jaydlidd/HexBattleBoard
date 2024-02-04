@@ -1,9 +1,10 @@
-StaticBody3D
+CollisionShape3D
+CharacterBody3D
 MeshInstance3D
+StaticBody3D
 Sprite2D
 HBoxContainer
 ScrollContainer
-CollisionShape3D
 Area3D
 Button
 Control

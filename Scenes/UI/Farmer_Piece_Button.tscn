@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwtrewg3cbek6"]
+
+[ext_resource type="Script" path="res://Scripts/MovePiece.gd" id="1_r4hok"]
+[ext_resource type="PackedScene" uid="uid://2mxm7r1rk5ba" path="res://Scenes/Pieces/farmer_piece.tscn" id="3_2rhke"]
+[ext_resource type="Texture2D" uid="uid://2lakkkxh66tn" path="res://Textures/Piece Icons/farmer.png" id="3_78qqg"]
+
+[node name="Farmer_Piece_Button" type="Button"]
+custom_minimum_size = Vector2(96, 96)
+offset_right = 96.0
+offset_bottom = 96.0
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 3
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_r4hok")
+button_icon = ExtResource("3_78qqg")
+draggable_object = ExtResource("3_2rhke")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.115, 0.116)
+texture = ExtResource("3_78qqg")
+centered = false
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

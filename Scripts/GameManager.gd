@@ -5,9 +5,10 @@ var row_height = 3.6
 var col_width = 4.8
 var map_tile_list = []
 var map:Array
+var tile_count:int = 0
 
 # Called when the node enters the scene tree for the first time.
-func _ready():	
+func _ready():
 	# Load the map
 	load_map(GlobalVars.game_settings["map_select"])
 
@@ -46,12 +47,14 @@ func design_random_preset_map(x:int, y:int, possible_tiles:Array):
 		
 		# Create the tile
 		var tile = rand_tile.instantiate()
+		tile.name = str(tile_count) + "_" + tile.name
 		
 		# Set the tile position
 		tile.position = Vector3((i * row_height), 0, 0 + offset)
 		
 		# Add the tile to the map list
 		map_tile_list.append(tile)
+		tile_count += 1
 		
 		for j in range(y - 1):
 			# Pick random tile type
@@ -59,12 +62,14 @@ func design_random_preset_map(x:int, y:int, possible_tiles:Array):
 			
 			# Create the tile
 			tile = rand_tile.instantiate()
+			tile.name = str(tile_count) + "_" + tile.name
 			
 			# Set the tile position
 			tile.position = Vector3((i * row_height), 0, ((j + 1) * col_width) + offset)
 			
 			# Add the tile to the map list
 			map_tile_list.append(tile)
+			tile_count += 1
 		
 	return map_tile_list
 
