@@ -49,14 +49,14 @@ size = 60.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCamera"]
 shape = SubResource("SphereShape3D_lavnc")
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = SubResource("Theme_1iu0q")
 
-[node name="PieceCount" type="Label" parent="Control"]
+[node name="PieceCount" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0

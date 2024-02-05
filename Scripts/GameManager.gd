@@ -6,13 +6,22 @@ var col_width = 4.8
 var map_tile_list = []
 var map:Array
 var tile_count:int = 0
+var current_player_no: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load the map
 	load_map(GlobalVars.game_settings["map_select"])
+	print(GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
+	
+	# Set the UI text for pieces and piece count
+	GlobalVars.set_total_pieces(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
+	GlobalVars.set_piece_count(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
 
 func load_map(map_select:String):
+	# Which player number is assigned to who
+	current_player_no = 1
+	
 	# Array of preloaded tile scenes
 	var possible_tiles = GlobalVars.game_settings["available_tiles"]
 		
