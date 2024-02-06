@@ -1,7 +1,9 @@
 res://Scenes/Worlds/Sandbox_Idea_Testing.tscn
-res://Scripts/MovePiece.gd
-res://Scripts/PieceCount.gd
-res://Scripts/GlobalVars.gd
-res://Scripts/GameManager.gd
 res://Scenes/UI/Knight_Piece_Button.tscn
 res://Scenes/UI/Farmer_Piece_Button.tscn
+res://Scripts/MovePiece.gd
+res://Scripts/GlobalVars.gd
+res://Scripts/GameManager.gd
+res://Scripts/PieceCount.gd
+res://Scripts/PlayerPiecesInventory.gd
+res://Scenes/Pieces/farmer_piece.tscn

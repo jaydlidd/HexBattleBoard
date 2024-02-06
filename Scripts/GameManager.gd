@@ -6,43 +6,40 @@ var col_width = 4.8
 var map_tile_list = []
 var map:Array
 var tile_count:int = 0
-var current_player_no: int
+var current_player_no: int = 1
+var inventory = ["knight", "farmer", "farmer"]
+var max_tiles = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Load the map
-	load_map(GlobalVars.game_settings["map_select"])
-	print(GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
+	load_map(GlobalVars.game_settings["map_select"])		# Load the map based on selection
 	
-	# Set the UI text for pieces and piece count
+	for piece in inventory:														# For each piece in the player's inventory
+		GlobalVars.add_piece(1, piece, str(GlobalVars.total_pieces) + piece)	# Add the piece to their global inventory
+		GlobalVars.total_pieces += 1											# Increment the global counter
+	
+	# Set the total pieces at the start of the game for the player's to keep track
 	GlobalVars.set_total_pieces(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
-	GlobalVars.set_piece_count(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
 
+# Function to load the selected map using the possible tiles.
+# 	It also spawns the tiles into the scene.
 func load_map(map_select:String):
-	# Which player number is assigned to who
-	current_player_no = 1
-	
-	# Array of preloaded tile scenes
-	var possible_tiles = GlobalVars.game_settings["available_tiles"]
-		
-	match map_select:
-		# Map created with possible tiles randomised in a preset amount
-		"pseudorandom":
+	var possible_tiles = GlobalVars.game_settings["available_tiles"] # Array of preloaded tile scenes
+	match map_select:									# Match based on the selected map
+		"pseudorandom":									# Map created with possible tiles randomised in a preset amount
 			map = design_random_preset_map(
 			GlobalVars.game_settings["horiz_tiles"], 
 			GlobalVars.game_settings["vert_tiles"], 
 			possible_tiles)
-		# Map created with a random size and random tiles
-		"random":
+		"random":										# Map created with a random size and random tiles
 			map = design_random_map(possible_tiles)
-	
-	# Add the tiles to the world scene
-	for i in map.size():
+
+	for i in map.size():	# Add the tiles to the world scene
 		add_child(map[i])
 
+# Design a map of tiles of a preset size with the available tiles
 func design_random_preset_map(x:int, y:int, possible_tiles:Array):
-	# Called with a size x and y which is the number of tiles tall and wide the map will be
-	var offset
+	var offset		# Variable to store the offset to align vertical hexagons
 	
 	for i in range(x):
 		# Determine if need to offset, odd rows offset by 50%
@@ -51,65 +48,43 @@ func design_random_preset_map(x:int, y:int, possible_tiles:Array):
 		else:
 			offset = 2.4
 		
-		# Pick random tile type
-		var rand_tile = possible_tiles[randi()% possible_tiles.size()]
-		
-		# Create the tile
-		var tile = rand_tile.instantiate()
-		tile.name = str(tile_count) + "_" + tile.name
-		
-		# Set the tile position
-		tile.position = Vector3((i * row_height), 0, 0 + offset)
-		
-		# Add the tile to the map list
-		map_tile_list.append(tile)
-		tile_count += 1
+		var rand_tile = possible_tiles[randi()% possible_tiles.size()]	# Pick random tile type
+		var tile = rand_tile.instantiate()								# Create the tile
+		tile.name = str(tile_count) + "_" + tile.name					# Name the tile so we can reference it
+		tile.position = Vector3((i * row_height), 0, 0 + offset)		# Set the tile position
+		map_tile_list.append(tile)										# Add the tile to the map list
+		tile_count += 1													# Increment the counter
 		
 		for j in range(y - 1):
-			# Pick random tile type
-			rand_tile = possible_tiles[randi()% possible_tiles.size()]
-			
-			# Create the tile
-			tile = rand_tile.instantiate()
-			tile.name = str(tile_count) + "_" + tile.name
-			
-			# Set the tile position
-			tile.position = Vector3((i * row_height), 0, ((j + 1) * col_width) + offset)
-			
-			# Add the tile to the map list
-			map_tile_list.append(tile)
-			tile_count += 1
+			rand_tile = possible_tiles[randi()% possible_tiles.size()]						# Pick random tile type
+			tile = rand_tile.instantiate()													# Create the tile
+			tile.name = str(tile_count) + "_" + tile.name									# Name the tile so we can reference it
+			tile.position = Vector3((i * row_height), 0, ((j + 1) * col_width) + offset)	# Set the tile position
+			map_tile_list.append(tile)														# Add the tile to the map list
+			tile_count += 1																	# Increment the counter
 		
 	return map_tile_list
 
-func design_random_map(possible_tiles:Array):
-	# Function to generate up to 100 map tiles randomly. Random tile placement
-	# 	as well as a random number of total tiles.
-	var max_tiles = 100
-	
-	# Find a random positive integer between 0 and max_tiles
-	var total_tiles = randi()% max_tiles
-	
-	# Now we know the total tiles, we need to find two divisors that make up the total_tiles number.
-	var divisors:Array = get_divisors(total_tiles)
+# Function to generate up to 100 map tiles randomly. Random tile placement
+# 	as well as a random number of total tiles.
+func design_random_map(possible_tiles:Array):	
+	var total_tiles = randi()% max_tiles					# Find a random positive integer between 0 and max_tiles
+	var divisors:Array = get_divisors(total_tiles)			# Find two divisors that make up the total_tiles number
 	
 	print("Divisors array: ", divisors)	# DEBUG
 	print("Total tiles: ", total_tiles)	# DEBUG
-	
-	# Pick a random divisor, and to find it's pair we divide total_tiles by the divisor
-	var horiz_tiles = divisors[randi()% divisors.size()]
-	var vert_tiles = total_tiles / horiz_tiles
-	
-	# Generate the design for total_tiles map
-	return design_random_preset_map(horiz_tiles, vert_tiles, possible_tiles)
 
-func get_divisors(num:int):
-	# Function to return all known divisors of a given integer
-	var divisors = []
+	var horiz_tiles = divisors[randi()% divisors.size()]	# Pick a random divisor
+	var vert_tiles = total_tiles / horiz_tiles				# Find the pair divisor by dividing total_tiles by the divisor
 	
-	# For each integer in the range of 2 (inclusive) to the integer
-	for i in range(2, num):
-		if num % i == 0:
-			divisors.append(i)
+	return design_random_preset_map(horiz_tiles, vert_tiles, possible_tiles)	# Generate the design for total_tiles map
+
+# Get all divisors of a given integer
+func get_divisors(num:int):
+	var divisors = []			# Function to return all known divisors of a given integer
+	
+	for i in range(2, num):		# For each integer in the range of 2 (inclusive) to the integer
+		if num % i == 0:		# If num modulo i is 0
+			divisors.append(i)	# Add the divisor
 			
 	return divisors

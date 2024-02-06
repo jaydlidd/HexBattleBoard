@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://shkexafeq2ip" path="res://Models/farmer/farmer.obj" id="1_ept63"]
 [ext_resource type="PackedScene" uid="uid://fneasxqgj0io" path="res://Scenes/char_model_base.tscn" id="2_xi721"]
 
-[node name="farmer_piece" type="MeshInstance3D"]
+[node name="FarmerPiece" type="MeshInstance3D"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 mesh = ExtResource("1_ept63")
 
