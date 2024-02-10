@@ -1,20 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://viafrbyeaawk"]
+[gd_scene load_steps=9 format=3 uid="uid://viafrbyeaawk"]
 
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_38trh"]
-[ext_resource type="Script" path="res://Scripts/PlayerPiecesInventory.gd" id="2_u4ngi"]
-[ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="3_8318d"]
-[ext_resource type="FontFile" uid="uid://bckjsnk3q6qua" path="res://Fonts/Genos-VariableFont_wght.ttf" id="4_q0jnl"]
-[ext_resource type="Script" path="res://Scripts/PieceCount.gd" id="5_ipule"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_y31n3"]
+[ext_resource type="Script" path="res://Scripts/PlayerPiecesInventory.gd" id="2_4ni23"]
+[ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="3_34gcl"]
+[ext_resource type="FontFile" uid="uid://bckjsnk3q6qua" path="res://Fonts/Genos-VariableFont_wght.ttf" id="4_o55ci"]
+[ext_resource type="Script" path="res://Scripts/PieceCount.gd" id="5_hhgs6"]
+[ext_resource type="PackedScene" uid="uid://yjcqh88w8i5u" path="res://Scenes/UI/loading_cover.tscn" id="6_86bgx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lavnc"]
 radius = 0.1
 
 [sub_resource type="Theme" id="Theme_1iu0q"]
-default_font = ExtResource("4_q0jnl")
+default_font = ExtResource("4_o55ci")
 default_font_size = 22
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_38trh")
+script = ExtResource("1_y31n3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
@@ -35,11 +36,11 @@ vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player1Container"]
 layout_mode = 2
-script = ExtResource("2_u4ngi")
+script = ExtResource("2_4ni23")
 
 [node name="PlayerCamera" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 30, 0)
-script = ExtResource("3_8318d")
+script = ExtResource("3_34gcl")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerCamera"]
 transform = Transform3D(-4.37114e-08, 0.5, -0.866025, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, 0, 0, 0)
@@ -52,18 +53,19 @@ shape = SubResource("SphereShape3D_lavnc")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 391.0
+offset_bottom = 711.0
 theme = SubResource("Theme_1iu0q")
 
 [node name="PieceCount" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 45.0
-offset_bottom = 46.0
+layout_mode = 1
+offset_right = 105.0
+offset_bottom = 108.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0/0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_ipule")
+script = ExtResource("5_hhgs6")
+
+[node name="LoadingCover" parent="Control" instance=ExtResource("6_86bgx")]
+visible = true

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707212854
+::res://::1707544958
 icon.svg::CompressedTexture2D::3106855803036608842::1706521693::1706521711::1::::<><>::
 README.md::TextFile::-1::1706580292::0::1::::<><>::
 ::res://Fonts/::1707121543
@@ -33,22 +33,27 @@ hex_model_base.tscn::PackedScene::6784384547712323569::1707041254::0::1::::<><>:
 ::res://Scenes/Map_Tiles/::1707041254
 grass_tile.tscn::PackedScene::6421590420433438381::1707041254::0::1::::<><>::uid://c3wn27tjrjvkr
 sand_tile.tscn::PackedScene::3200731227687492267::1707026177::0::1::::<><>::uid://c3wn27tjrjvkr
-::res://Scenes/Pieces/::1707041254
-farmer_piece.tscn::PackedScene::1921290939849425274::1707026178::0::1::::<><>::uid://shkexafeq2ip
+::res://Scenes/Pieces/::1707216574
+farmer_piece.tscn::PackedScene::1921290939849425274::1707216574::0::1::::<><>::uid://shkexafeq2ip
 knight_piece.tscn::PackedScene::5318462280245573940::1707041254::0::1::::<><>::uid://dda4g1w8ikr3
-::res://Scenes/UI/::1707212769
-Farmer_Piece_Button.tscn::PackedScene::6357259602860138283::1707212769::0::1::::<><>::res://Scripts/MovePiece.gd<>uid://2mxm7r1rk5ba::::res://Scenes/Pieces/farmer_piece.tscn<>uid://2lakkkxh66tn::::res://Textures/Piece Icons/farmer.png
-Knight_Piece_Button.tscn::PackedScene::6005180098116949413::1707212769::0::1::::<><>::res://Scripts/MovePiece.gd<>uid://c1nh6l4ltgkv1::::res://Textures/Piece Icons/knight.png<>uid://ch1kkdahyr8rg::::res://Scenes/Pieces/knight_piece.tscn
-::res://Scenes/Worlds/::1707212769
-Sandbox_Idea_Testing.tscn::PackedScene::1490490562938235894::1707212769::0::1::::<><>::res://Scripts/GameManager.gd<>res://Scripts/PlayerPiecesInventory.gd<>res://Scripts/PlayerCamera.gd<>uid://bckjsnk3q6qua::::res://Fonts/Genos-VariableFont_wght.ttf<>res://Scripts/PieceCount.gd
-::res://Scripts/::1707212833
-GameManager.gd::GDScript::-1::1707212833::0::1::::<>Node3D<>::
-GlobalVars.gd::GDScript::-1::1707212833::0::1::::<>Node<>::
+::res://Scenes/UI/::1707544958
+Farmer_Piece_Button.tscn::PackedScene::6357259602860138283::1707542691::0::1::::<><>::res://Scripts/MovePiece.gd<>uid://2mxm7r1rk5ba::::res://Scenes/Pieces/farmer_piece.tscn<>uid://2lakkkxh66tn::::res://Textures/Piece Icons/farmer.png
+Knight_Piece_Button.tscn::PackedScene::6005180098116949413::1707542690::0::1::::<><>::res://Scripts/MovePiece.gd<>uid://c1nh6l4ltgkv1::::res://Textures/Piece Icons/knight.png<>uid://ch1kkdahyr8rg::::res://Scenes/Pieces/knight_piece.tscn
+loading_cover.tscn::PackedScene::1703262073959398904::1707544931::0::1::::<><>::uid://bckjsnk3q6qua::::res://Fonts/Genos-VariableFont_wght.ttf
+Loading_Screen.tscn::PackedScene::8952309123863767031::1707544185::0::1::::<><>::res://Scenes/Worlds/LoadingScreenManager.gd
+::res://Scenes/Worlds/::1707544958
+LoadingScreenManager.gd::GDScript::-1::1707543993::0::1::::<>Control<>::
+Main_Game.tscn::PackedScene::1490490562938235894::1707544889::0::1::::<><>::res://Scripts/GameManager.gd<>res://Scripts/PlayerPiecesInventory.gd<>res://Scripts/PlayerCamera.gd<>uid://bckjsnk3q6qua::::res://Fonts/Genos-VariableFont_wght.ttf<>res://Scripts/PieceCount.gd
+Main_Menu.tscn::PackedScene::1716030831430176030::1707544185::0::1::::<><>::res://Scripts/MainMenuManager.gd
+::res://Scripts/::1707543836
+GameManager.gd::GDScript::-1::1707541641::0::1::::<>Node3D<>::
+GlobalVars.gd::GDScript::-1::1707541948::0::1::::<>Node<>::
+MainMenuManager.gd::GDScript::-1::1707543836::0::1::::<>Control<>::
 MapBaseTile.gd::GDScript::-1::1707029748::0::1::::<>StaticBody3D<>::
-MovePiece.gd::GDScript::-1::1707212833::0::1::::<>Button<>::
-PieceCount.gd::GDScript::-1::1707212833::0::1::::<>Label<>::
-PlayerCamera.gd::GDScript::-1::1707026177::0::1::::<>CharacterBody3D<>::
-PlayerPiecesInventory.gd::GDScript::-1::1707212833::0::1::::<>HBoxContainer<>::
+MovePiece.gd::GDScript::-1::1707542589::0::1::::<>Button<>::
+PieceCount.gd::GDScript::-1::1707542603::0::1::::<>Label<>::
+PlayerCamera.gd::GDScript::-1::1707542610::0::1::::<>CharacterBody3D<>::
+PlayerPiecesInventory.gd::GDScript::-1::1707541334::0::1::::<>HBoxContainer<>::
 ::res://Textures/::1707023878
 blue_placeholder.tres::StandardMaterial3D::2390741373003303189::1706931376::0::1::::<><>::
 ::res://Textures/Piece Icons/::1707023878

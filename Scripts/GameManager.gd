@@ -10,16 +10,34 @@ var current_player_no: int = 1
 var inventory = ["knight", "farmer", "farmer"]
 var max_tiles = 100
 
+# Preloaded map tiles
+var sand_tile = preload("res://Scenes/Map_Tiles/sand_tile.tscn")
+var grass_tile = preload("res://Scenes/Map_Tiles/grass_tile.tscn")
+
+# Loading screen
+var loading_screen = preload("res://Scenes/UI/loading_cover.tscn")
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	load_map(GlobalVars.game_settings["map_select"])		# Load the map based on selection
+func _ready():	
+	# List of available tiles to build a map
+	var available_tiles = [sand_tile, grass_tile]
+	GlobalVars.game_settings["available_tiles"] = available_tiles
+	
+	load_map(GlobalVars.game_settings["map_select"])	# Load the map based on selection
 	
 	for piece in inventory:														# For each piece in the player's inventory
 		GlobalVars.add_piece(1, piece, str(GlobalVars.total_pieces) + piece)	# Add the piece to their global inventory
 		GlobalVars.total_pieces += 1											# Increment the global counter
 	
 	# Set the total pieces at the start of the game for the player's to keep track
-	GlobalVars.set_total_pieces(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_pieces"].size())
+	GlobalVars.set_total_pieces(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_inventory"].size())
+	
+# Called every frame
+func _process(delta):
+	if GlobalVars.game_settings["is_loading"] == false:		# If not loading...
+		get_node("Control/LoadingCover").visible = false	# Hide loading screen
+	else:													# If loading...
+		get_node("Control/LoadingCover").visible = true		# Show loading screen
 
 # Function to load the selected map using the possible tiles.
 # 	It also spawns the tiles into the scene.

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ypi1okj4fye5"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenuManager.gd" id="1_6pj6i"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 389.0
+offset_bottom = 850.0
+script = ExtResource("1_6pj6i")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -15.5
+offset_right = 48.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Load Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

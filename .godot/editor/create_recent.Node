@@ -1,5 +1,9 @@
+ColorRect
+TextureRect
 Label
+ProgressBar
 Control
+Button
 CollisionShape3D
 CharacterBody3D
 MeshInstance3D
@@ -8,7 +12,5 @@ Sprite2D
 HBoxContainer
 ScrollContainer
 Area3D
-Button
-TextureRect
 DirectionalLight3D
 Camera3D
