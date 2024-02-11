@@ -69,3 +69,4 @@ script = ExtResource("5_hhgs6")
 
 [node name="LoadingCover" parent="Control" instance=ExtResource("6_86bgx")]
 visible = true
+layout_mode = 0

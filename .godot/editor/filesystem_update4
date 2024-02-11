@@ -1,14 +1,2 @@
-res://Scenes/Worlds/Sandbox_Idea_Testing.tscn
-res://Scenes/UI/Knight_Piece_Button.tscn
-res://Scenes/UI/Farmer_Piece_Button.tscn
-res://Scripts/MovePiece.gd
-res://Scripts/GlobalVars.gd
-res://Scripts/PlayerPiecesInventory.gd
-res://Scripts/GameManager.gd
-res://Scripts/PieceCount.gd
-res://Scripts/PlayerCamera.gd
-res://Scripts/MainMenuManager.gd
-res://Scenes/Worlds/Main_Menu.tscn
-res://Scenes/Worlds/Loading_Screen.tscn
-res://Scenes/Worlds/LoadingScreenManager.gd
 res://Scenes/Worlds/Main_Game.tscn
+res://Scripts/GameManager.gd
