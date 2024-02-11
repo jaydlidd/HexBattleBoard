@@ -12,7 +12,7 @@ var farmer_piece:PackedScene = preload("res://Scenes/UI/Farmer_Piece_Button.tscn
 func _ready():
 	await get_tree().create_timer(1).timeout		# Wait to begin building the inventory for the pieces to be added
 	# Get this player's pieces
-	var pieces:Dictionary = GlobalVars.game_settings[str("player", game_player_no,"_inventory")]
+	var pieces:Dictionary = GlobalVars.game_settings[str(game_player_no) + "_inventory"]
 	
 	# Create the buttons for each piece
 	for current_piece in pieces:

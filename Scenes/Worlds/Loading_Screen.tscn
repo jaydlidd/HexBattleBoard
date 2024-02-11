@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0sthufokfamx"]
 
-[ext_resource type="Script" path="res://Scenes/Worlds/LoadingScreenManager.gd" id="1_wwobw"]
+[ext_resource type="Script" path="res://Scripts/LoadingScreenManager.gd" id="1_78c0i"]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 392.0
 offset_bottom = 854.0
-script = ExtResource("1_wwobw")
+script = ExtResource("1_78c0i")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 1

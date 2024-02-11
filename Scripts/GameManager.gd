@@ -6,9 +6,10 @@ var col_width = 4.8
 var map_tile_list = []
 var map:Array
 var tile_count:int = 0
-var current_player_no: int = 1
-var player1_inventory = ["knight", "farmer", "farmer"]
 var max_tiles = 100
+
+# Player variables
+var current_player_no: int = 1
 
 # Preloaded map tiles
 var sand_tile = preload("res://Scenes/Map_Tiles/sand_tile.tscn")
@@ -17,26 +18,18 @@ var grass_tile = preload("res://Scenes/Map_Tiles/grass_tile.tscn")
 # Loading screen
 var loading_screen = preload("res://Scenes/UI/loading_cover.tscn")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	pass
+
+func setup_game():
 	var available_tiles = [sand_tile, grass_tile]					# List of available tiles to build a map
 	GlobalVars.game_settings["available_tiles"] = available_tiles
-	
 	load_map(GlobalVars.game_settings["map_select"])	# Load the map based on selection
 	
-	for piece in player1_inventory:												# For each piece in the player's player1_inventory
-		GlobalVars.add_piece(1, piece, str(GlobalVars.total_pieces) + piece)	# Add the piece to their global player1_inventory
-		GlobalVars.total_pieces += 1											# Increment the global counter
-	
-	# Set the total pieces at the start of the game for the player's to keep track
-	GlobalVars.set_total_pieces(current_player_no, GlobalVars.game_settings["player" + str(current_player_no) + "_player1_inventory"].size())
-	
-# Called every frame
-func _process(_delta):
-	if GlobalVars.game_settings["is_loading"] == false:		# If not loading...
-		get_node("Control/LoadingCover").visible = false	# Hide loading screen
-	else:													# If loading...
-		get_node("Control/LoadingCover").visible = true		# Show loading screen
+	GlobalVars.populate_player_inventory()
+	GlobalVars.spawn_players()
 
 # Function to load the selected map using the possible tiles.
 # 	It also spawns the tiles into the scene.
@@ -79,7 +72,7 @@ func design_random_preset_map(x:int, y:int, possible_tiles:Array):
 			tile.position = Vector3((i * row_height), 0, ((j + 1) * col_width) + offset)	# Set the tile position
 			map_tile_list.append(tile)														# Add the tile to the map list
 			tile_count += 1																	# Increment the counter
-		
+	
 	return map_tile_list
 
 # Function to generate up to 100 map tiles randomly. Random tile placement

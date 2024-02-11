@@ -9,6 +9,7 @@ var is_dragging:bool = false
 var piece:Node
 var collided_object_id
 var new_name: String
+var taken_piece: Dictionary
 
 # Camera / raycasting variables
 var RAYCAST_LENGTH = 1000
@@ -36,28 +37,32 @@ func _process(_delta):
 
 # Function for handling when button is down (clicked)
 func _on_button_down():
-	is_dragging = true						# Set the piece to dragging
-	self.self_modulate.a = 0				# Make the button invisible
-	GlobalVars.take_piece(1, piece.name)	# Take the piece from the player's inventory
+	is_dragging = true									# Set the piece to dragging
+	self.self_modulate.a = 0.3							# Make the button invisible
+	taken_piece = GlobalVars.take_piece(1, piece.name)	# Take the piece from the player's inventory
+	print(taken_piece)
 
 # Called when button is released (up)
 func _on_button_up():
+	
 	is_dragging = false												# Set the piece to dragging
 	var last_node = GlobalVars.find_node_by_id(collided_object_id)	# Find the node under the mouse
+	print(last_node)
 	
-	if last_node != null:
-		# We found the node, so check if the space is occupied
-		if last_node.is_occupied == false:
-			last_node.is_occupied = true		# If so, set it to occupied
-		# If not, remove the piece and give the piece back
-		else:
-			self.self_modulate.a = 1					# Make the button visible again
-			piece.global_position = Vector3(0, 0, 0)	# Reset the piece position
-			piece.visible = false						# Make the piece invisible again
+	if last_node != null and last_node.is_occupied == false:		# If last_node is not null and map tile is empty
+		last_node.is_occupied = true								# Set tile to occupied
+		self.disabled = true										# Disable piece button
 	else:
-		self.self_modulate.a = 1						# Make the button visible again
-		piece.global_position = Vector3(0, 0, 0)		# Reset the piece position
-		piece.visible = false							# Make the piece invisible again
+		return_piece_to_player()									# Give the piece back
+		
+# Function to return piece to player inventory.
+# 	Used when piece is not properly placed or if map tile is already occupied.
+func return_piece_to_player():
+	GlobalVars.add_piece(1, taken_piece.piece_type, taken_piece.piece_name)	# Add piece to player inventory
+	self.self_modulate.a = 1												# Make the button invisible
+	piece.global_position = Vector3(0, 0, 0)								# Reset the piece position
+	piece.visible = false													# Make the piece invisible again
+	self.disabled = false													# Re-enable button
 
 # Function for raycasting from mouse position to find the map tile under the mouse
 func get_collided_objects():

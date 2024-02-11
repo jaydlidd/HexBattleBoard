@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Hex Battle Board"
-run/main_scene="res://Scenes/Worlds/Main_Menu.tscn"
+run/main_scene="res://Scenes/Worlds/MP_Test.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalVars="*res://Scripts/GlobalVars.gd"
+GameManager="*res://Scripts/GameManager.gd"
 
 [display]
 

@@ -1,9 +1,10 @@
-res://Scenes/Worlds
-res://Scenes/UI
-res://Fonts
 res://Scripts
+res://Scenes
+res://Scenes/Worlds
+res://Fonts
+res://Scenes/Testing
+res://Scenes/UI
 res://Scenes/Pieces
 res://Models/knight
-res://Scenes
 res://Scenes/Map_Tiles
 res://Textures
