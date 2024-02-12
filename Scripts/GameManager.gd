@@ -16,19 +16,30 @@ var sand_tile = preload("res://Scenes/Map_Tiles/sand_tile.tscn")
 var grass_tile = preload("res://Scenes/Map_Tiles/grass_tile.tscn")
 
 # Loading screen
-var loading_screen = preload("res://Scenes/UI/loading_cover.tscn")
+#var loading_screen = preload("res://Scenes/UI/loading_cover.tscn")
 
+var player_inventory = ["knight", "farmer", "farmer"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	pass
+	
+# Called every frame
+func _process(_delta):
+	pass
+#	print(get_node("root/MainGame/"))
+#	if get_node("Control/LoadingCover") != null:
+#		if GlobalVars.game_settings["is_loading"] == false:		# If not loading...
+#			get_node("Control/LoadingCover").visible = false	# Hide loading screen
+#		else:													# If loading...
+#			get_node("Control/LoadingCover").visible = true		# Show loading screen
 
 func setup_game():
 	var available_tiles = [sand_tile, grass_tile]					# List of available tiles to build a map
 	GlobalVars.game_settings["available_tiles"] = available_tiles
 	load_map(GlobalVars.game_settings["map_select"])	# Load the map based on selection
 	
-	GlobalVars.populate_player_inventory()
+#	GlobalVars.populate_player_inventory()
 	GlobalVars.spawn_players()
 
 # Function to load the selected map using the possible tiles.
@@ -98,3 +109,9 @@ func get_divisors(num:int):
 			divisors.append(i)	# Add the divisor
 			
 	return divisors
+
+# Called when the node enters the scene tree for the first time.
+#func _ready():
+	
+
+

@@ -1,11 +1,15 @@
+LineEdit
+Button
+CanvasLayer
+HBoxContainer
+ScrollContainer
+MultiplayerSynchronizer
+MultiplayerSpawner
 SubViewport
 SubViewportContainer
 GridContainer
 Node3D
 Label
-LineEdit
-Button
-MultiplayerSynchronizer
 CollisionShape3D
 MeshInstance3D
 RigidBody3D
@@ -13,7 +17,6 @@ OmniLight3D
 StaticBody3D
 Camera3D
 Node
-HBoxContainer
 VBoxContainer
 Control
 ColorRect
@@ -21,6 +24,5 @@ TextureRect
 ProgressBar
 CharacterBody3D
 Sprite2D
-ScrollContainer
 Area3D
 DirectionalLight3D

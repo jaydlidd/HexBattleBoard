@@ -26,18 +26,14 @@ func populate_player_inventory():
 			GlobalVars.total_pieces += 1											# Increment the global counter
 
 func spawn_players():
-	for i in range(players_ref.size()):
+	for player_id in players_ref:
 		var current_player = player_scene.instantiate()
-		print(current_player)
-		print(get_node("/root/MainGame/GridContainer"))
-		get_node("/root/MainGame/GridContainer/SubViewportContainer" + str(i) + "/SubViewport").add_child(current_player)
-		print(get_node("/root/MainGame/GridContainer/SubViewportContainer" + str(i) + "/SubViewport/PlayerCamera/Camera3D").current)
-		print(get_tree().get_nodes_in_group("PlayerSpawnLocation"))
-		for spawn in get_tree().get_nodes_in_group("PlayerSpawnLocations"):
-			if spawn.name == str(i):
-				current_player.global_position = spawn.global_position
-				current_player.get_node("Camera3D").make_current()
-				print(current_player.global_position)
+		current_player.name = str(players_ref[player_id]["id"])
+		add_child(current_player)
+	GlobalVars.game_settings["is_loading"] = false
+#		for spawn in get_tree().get_nodes_in_group("PlayerSpawnLocations"):
+#			if spawn.name == str(i):
+#				current_player.global_position = spawn.global_position
 
 # Function to get the total piece count for a given player
 func get_total_pieces(player_no: int):

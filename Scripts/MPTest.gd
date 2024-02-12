@@ -25,7 +25,7 @@ func player_disconnected(id):
 # This is called only on a client
 func connected_to_server():
 	print("Connected to server!")
-	send_player_info.rpc_id(1, $PlayerNameTextEdit.text, multiplayer.get_unique_id(), player_inventory)
+	send_player_info.rpc($PlayerNameTextEdit.text, multiplayer.get_unique_id(), player_inventory)
 	
 # This gets called only on a client
 func connection_failed():

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://viafrbyeaawk"]
+[gd_scene load_steps=9 format=3 uid="uid://viafrbyeaawk"]
 
 [ext_resource type="Script" path="res://Scripts/MainSceneManager.gd" id="1_43j6n"]
-[ext_resource type="Script" path="res://Scripts/PlayerPiecesInventory.gd" id="2_4ni23"]
+[ext_resource type="PackedScene" uid="uid://c1juymqthvl5x" path="res://Scenes/player.tscn" id="2_aanf0"]
 [ext_resource type="FontFile" uid="uid://bckjsnk3q6qua" path="res://Fonts/Genos-VariableFont_wght.ttf" id="4_o55ci"]
 [ext_resource type="Script" path="res://Scripts/PieceCount.gd" id="5_hhgs6"]
-[ext_resource type="Script" path="res://Scenes/UI/LoadingCover.gd" id="6_0fb37"]
+[ext_resource type="Script" path="res://Scripts/LoadingCover.gd" id="5_s8gat"]
+[ext_resource type="Script" path="res://Scripts/PlayerPiecesInventory.gd" id="6_44qrq"]
 [ext_resource type="PackedScene" uid="uid://yjcqh88w8i5u" path="res://Scenes/UI/loading_cover.tscn" id="6_86bgx"]
 
 [sub_resource type="Theme" id="Theme_1iu0q"]
@@ -13,26 +14,17 @@ default_font_size = 22
 
 [node name="MainGame" type="Node3D"]
 script = ExtResource("1_43j6n")
+player_scene = ExtResource("2_aanf0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 
-[node name="SpawnLocations" type="Node3D" parent="."]
-
-[node name="0" type="Node3D" parent="SpawnLocations" groups=["PlayerSpawnLocations"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 30, 0)
-
-[node name="1" type="Node3D" parent="SpawnLocations" groups=["PlayerSpawnLocations"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 30, 10)
-
-[node name="Control" type="Control" parent="SpawnLocations"]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 4.0
-offset_right = 4.0
 theme = SubResource("Theme_1iu0q")
 
-[node name="PieceCount" type="Label" parent="SpawnLocations/Control"]
+[node name="PieceCount" type="Label" parent="Control"]
 layout_mode = 1
 offset_right = 105.0
 offset_bottom = 108.0
@@ -42,53 +34,53 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_hhgs6")
 
-[node name="LoadingCover" parent="SpawnLocations/Control" instance=ExtResource("6_86bgx")]
+[node name="LoadingCover" parent="Control" instance=ExtResource("6_86bgx")]
 visible = true
 layout_mode = 0
-script = ExtResource("6_0fb37")
+script = ExtResource("5_s8gat")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-anchors_preset = 15
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn")
+spawn_path = NodePath("..")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-
-[node name="SubViewportContainer0" type="SubViewportContainer" parent="GridContainer"]
-layout_mode = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer0"]
-size = Vector2i(2, 2)
-
-[node name="Player1Container" type="ScrollContainer" parent="GridContainer/SubViewportContainer0/SubViewport"]
-offset_left = -4.0
-offset_right = -4.0
+offset_left = 10.0
+offset_top = -100.0
+offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/SubViewportContainer0/SubViewport/Player1Container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-script = ExtResource("2_4ni23")
+script = ExtResource("6_44qrq")
 
-[node name="SubViewportContainer1" type="SubViewportContainer" parent="GridContainer"]
-layout_mode = 2
-stretch = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer1"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 4
+[node name="Host" type="Button" parent="CanvasLayer"]
+visibility_layer = 2
+offset_left = 86.0
+offset_top = 597.0
+offset_right = 157.0
+offset_bottom = 636.0
+theme_override_colors/icon_normal_color = Color(0.141176, 0, 0, 1)
+text = "Host"
 
-[node name="Player2Container" type="ScrollContainer" parent="GridContainer/SubViewportContainer1/SubViewport"]
-offset_left = -4.0
-offset_right = -4.0
-grow_horizontal = 2
-grow_vertical = 0
-vertical_scroll_mode = 0
+[node name="Join" type="Button" parent="CanvasLayer"]
+offset_left = 213.0
+offset_top = 598.0
+offset_right = 288.0
+offset_bottom = 642.0
+text = "Join"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/SubViewportContainer1/SubViewport/Player2Container"]
-layout_mode = 2
-script = ExtResource("2_4ni23")
+[node name="PlayerNameTextEdit" type="LineEdit" parent="CanvasLayer"]
+offset_left = 110.0
+offset_top = 660.0
+offset_right = 273.0
+offset_bottom = 691.0
+
+[connection signal="button_down" from="CanvasLayer/Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="CanvasLayer/Join" to="." method="_on_join_button_down"]

@@ -24,10 +24,8 @@ func _ready():
 	add_child(piece)							# Add the piece to the scene
 	piece.visible = false						# Make the piece invisible for now
 	piece.name = new_name						# Name the piece to allow for easy reference
-	
+
 	camera = get_viewport().get_camera_3d()		# Get the camera in scene
-	
-	GlobalVars.game_settings["is_loading"] = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
