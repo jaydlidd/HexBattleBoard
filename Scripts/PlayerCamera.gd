@@ -8,12 +8,12 @@ extends CharacterBody3D
 @onready var camera = $Camera3D
 
 func _enter_tree():
-	print("name:" + name)
+	print(name + " entered tree...")
 	set_multiplayer_authority(name.to_int())
 	
 func _ready():
 	camera.current = is_multiplayer_authority()
-	print(camera.current)
+	print("Current camera: " + str(camera.current))
 
 func _physics_process(delta):
 	velocity = Vector3.ZERO

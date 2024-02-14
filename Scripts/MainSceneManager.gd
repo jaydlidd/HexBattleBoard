@@ -21,6 +21,7 @@ func player_connected(id):
 	var player = player_scene.instantiate()
 	player.name = str(id)
 	call_deferred("add_child", player)
+	call_deferred("send_player_info", id)
 
 # This gets called when a player disconnects on servers and clients
 func player_disconnected(id):
@@ -58,7 +59,7 @@ func _on_host_button_down():
 	peer = ENetMultiplayerPeer.new()								# Start a peer connection
 	var error = peer.create_server(PORT, 2)							# Create server with 2 players
 	multiplayer.peer_connected.connect(player_connected)
-	player_connected(1)
+	player_connected(multiplayer.get_unique_id())
 	if error != OK:													# Handle errors
 		print("Failure to set up host: " + str(error))
 		return
@@ -73,6 +74,7 @@ func _on_join_button_down():
 	peer.create_client(ADDRESS, PORT)								# Create a connection to the host
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)	# Compress traffic
 	multiplayer.set_multiplayer_peer(peer)							# Allow the connection to play the game
+	player_connected(multiplayer.get_unique_id())
 	$CanvasLayer.hide()
 	
 func _on_start_game_button_down():
